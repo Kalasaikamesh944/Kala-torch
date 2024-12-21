@@ -128,9 +128,9 @@ class Kala_torch:
         # Create a 2D convolutional layer
         return nn.Conv2d(in_channels, out_channels, kernel_size, stride=stride, padding=padding)
 
-    def relu(self):
+    def relu(self,input_):
         # Create a ReLU activation function
-        return nn.ReLU()
+        return nn.ReLU(input_)
 
     def softmax(self, dim=None):
         # Create a softmax activation function
@@ -163,6 +163,10 @@ class Kala_torch:
     def mse_loss(self):
         # Create a mean squared error loss function
         return nn.MSELoss()
+
+    def real(self,quantum_data):
+        # Convert complex amplitudes to probabilities
+        return torch.tensor([abs(v) ** 2 for v in quantum_data], dtype=torch.float32)
 
     # Multiprocessing utilities
     def get_all_sharing_strategies(self):
