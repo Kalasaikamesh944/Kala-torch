@@ -29,7 +29,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "kala-torch=kala_torch_module.main:main",
+            "kala-torch=Kala_torch.main:main",
         ],
     },
 )
